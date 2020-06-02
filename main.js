@@ -2,7 +2,7 @@ $(document).ready(function () {
     console.log("ready!");
 
 
-   
+
 
     $(".redletters").mouseover(function () {
         $(this).children().css({
@@ -11,16 +11,23 @@ $(document).ready(function () {
             "fill": "white"
         });
     });
-   $(".redletters").mouseleave(function () {
+    $(".redletters").mouseleave(function () {
         $(this).children().css({
             "strokeWidth": "0",
             "stroke": "blue",
             "fill": "#ce003a"
         });
     });
+
+
+    $("#plate").mouseover(function () {
+        $("#loin").animate({
+            left: "150%"
+        }, "slow");
+
+    });
+
 });
-
-
 
 
 const cuts = [
@@ -56,20 +63,36 @@ const cuts = [
     },
 ];
 
-      function cut( name, id) {
-          for(let i = 0; i <=cuts.length -1;  i++){
-              if(name === cuts[i].name){
-                document.getElementById('name').innerHTML = cuts[i].name;
-                document.getElementById('cals').innerHTML = cuts[i].calories;
-                document.getElementById('buttonid').innerHTML = cuts[i].fat;
-                  
-              }
-          }
-      }
+function cut(name, id) {
+let calSlider;
 
+    for (let i = 0; i <= cuts.length - 1; i++) {
+        if (name === cuts[i].name) {
+            document.getElementById('name').innerHTML = cuts[i].name;
 
+            document.getElementById('cals').innerHTML = cuts[i].calories;
+            calSlider = cuts[i].calories;
+            console.log(calSlider);
+            document.getElementById('fat').innerHTML = cuts[i].fat;
+            document.getElementById('protein').innerHTML = cuts[i].protein;
 
+        }
+    }
+}
 
+anime({
+    targets: '.slider',
+    translateX: calSlider
+
+});
+
+anime({
+    targets: '.slider',
+    left: '240px',
+    backgroundColor: '#FFF',
+    borderRadius: ['0%', '50%'],
+    easing: 'easeInOutQuad'
+});
 
 anime({
     targets: '.cow path',
@@ -86,11 +109,9 @@ anime({
     easing: 'easeInOutSine',
     duration: 500,
     direction: 'alternate',
+    delay: anime.stagger(200),
     loop: true
 });
 
 
 //CUTS PAGE - BUTTON FILLED WITH ID NAME
-
-
-
