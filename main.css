@@ -1,49 +1,61 @@
 * {
     box-sizing: border-box;
     text-decoration: none;
-    color: black;
+    /*    color: black;*/
 
 }
 
+#meat-locker {
+    position: absolute;
+    height: 100vh;
+}
+
+
 /*NAVIGATION BAR AND LINKS*/
 nav {
+    margin-bottom: 20px;
     text-align: center;
+padding:50px 0px 30px 0px;
     margin: auto;
-    margin-bottom: 50px;
-    margin-top: 100px;
+}
+
+.link-wrapper {
+    margin: auto;
+    width: inherit;
+    position: absolute;
 }
 
 a.link {
     color: white;
     padding: 20px;
+
     border-radius: 5%;
     background-color: #ce003a;
     font-family: 'Permanent Marker', cursive;
-    margin-right: 20px;
     font-size: 20px;
+    margin: 15px;
 }
 
 .cow-wrapper {
     overflow: hidden;
     position: relative;
-    max-width: 700px;
     width: 70vw;
     height: auto;
-    margin: auto;margin-bottom: 30px;
+    margin: auto;
+    margin-bottom: 30px;
 }
-.infobox-wrapper{
-    position: relative;
-}
-.infobox {
-line-height: 20px;
-    /*    left:-50%;*/
-    /*    position: absolute;*/
+
+.infobox-wrapper {
     width: 70vw;
     margin: auto;
-    max-width: 700px;
+    position: relative;
+}
+
+.infobox {
+    line-height: 20px;
     display: flex;
     justify-items: center;
-position: absolute;
+    position: absolute;
     visibility: collapse;
 }
 
@@ -68,65 +80,107 @@ span.title {
 }
 
 
-
-
 /*CUTS PAGE*/
 
 div.slider {
-    transition:all .5s ease-in-out;
+    transition: all .5s ease-in-out;
     position: relative;
-    margin: 10px 0px 10px 0px;
     border-radius: 50%;
     background-color: #e2ff26;
     height: 20px;
     width: 20px;
 }
 
-img {
-width:inherit;}
+.meat-cut img {
+    width: 50%;
+}
 
 button {
     padding: 5px;
-    font-size: 14px;
+    font-size: 18px;
     border: none;
     background-color: #e2ff26;
     font-family: 'Quicksand', sans-serif;
     text-transform: uppercase;
 }
 
+#name {
+    color: #ce003a;
+    font-family: "Permanent Marker", "cursive";
+}
+header{
+width: 100vw;
+    display: flex;
+    flex-direction: column;
+
+
+    margin:auto;
+    position:fixed;
+}
+
+
+
+.info-wrapper {
+    align-self: center;
+margin: auto;
+    width: 350px;
+    display: flex;
+    align-content: center;
+}
+
+
 span {
-    color: white;
-font-weight: 100;}
+  
+    font-size: 28px;
+    font-weight: 900;
+}
 
 .info {
-font-size: 20px;
-    position: fixed;
-    width: 300px;
+    opacity:1;
+    margin: auto;
+    width: 70vw;
+    font-size: 20px;
     padding: 20px;
     font-family: 'Quicksand', sans-serif;
-    background-color: #ce003a;
-}
-.info p{
-font-weight: 800}
-div#RibeyeFiletcopy{
-    grid-column-end: span 2;
+    border: 4px solid #ce003a;
 }
 
+.info p {
+    font-weight: 100;
+    font-size: 14px;
+    opacity:1;
+}
+
+
+
 div.meat-cut {
-    width: 15vw;
-/*    min-width: 500px;*/
+    /*    min-width: 500px;*/
     display: flex;
     flex-direction: column;
     align-items: center;
-/*    border: 3px solid #e2ff26;*/
+    justify-items: auto;
+    /*    border: 3px solid #e2ff26;*/
 }
 
 
 .cut-wrapper {
-    width: 70vw;
+padding-top: 400px;
     margin: auto;
-    grid-gap: 15px;
+    grid-row-gap: 15px;
+    grid-column-gap: 15px;
     display: grid;
+    justify-items: center;
     grid-template-columns: 1fr 1fr 1fr;
 
+}
+
+@media only screen and (max-width: 800px) {
+    .cut-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+
+    .cut-wrapper img {
+        width: 50vw;
+    }
 }

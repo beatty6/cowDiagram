@@ -1,4 +1,6 @@
 $(document).ready(function () {
+
+
     console.log("ready!");
 
 
@@ -14,26 +16,84 @@ $(document).ready(function () {
         $("#ribsInfobox").css({
             "visibility": 'visible'
         });
-       $(".infobox-wrapper div").not("#ribsInfobox").css({
+        $(".infobox-wrapper div").not("#ribsInfobox").css({
             "visibility": 'collapse'
         });
-        
+
     });
-  $("#sirloin").click(function () {
+    $("#sirloin").click(function () {
         $("#sirloinInfobox").css({
             "visibility": 'visible'
         });
-       $(".infobox-wrapper div").not("#sirloinInfobox").css({
+        $(".infobox-wrapper div").not("#sirloinInfobox").css({
             "visibility": 'collapse'
         });
-        
-});
+
+    });
+    $("#round").click(function () {
+        $("#roundInfobox").css({
+            "visibility": 'visible'
+        });
+        $(".infobox-wrapper div").not("#roundInfobox").css({
+            "visibility": 'collapse'
+        });
+
+    });
+    $("#rump").click(function () {
+        $("#rumpInfobox").css({
+            "visibility": 'visible'
+        });
+        $(".infobox-wrapper div").not("#rumpInfobox").css({
+            "visibility": 'collapse'
+        });
+
+    });
+    $("#flank").click(function () {
+        $("#flankInfobox").css({
+            "visibility": 'visible'
+        });
+        $(".infobox-wrapper div").not("#flankInfobox").css({
+            "visibility": 'collapse'
+        });
+
+    });
+    $("#shank").click(function () {
+        $("#shankInfobox").css({
+            "visibility": 'visible'
+        });
+        $(".infobox-wrapper div").not("#shankInfobox").css({
+            "visibility": 'collapse'
+        });
+
+    });
+    $("#plate").click(function () {
+        $("#plateInfobox").css({
+            "visibility": 'visible'
+        });
+        $(".infobox-wrapper div").not("#plateInfobox").css({
+            "visibility": 'collapse'
+        });
+
+    });
+
     $(".redletters").mouseover(function () {
         $(this).children().css({
             "strokeWidth": "1",
             "stroke": "blue",
             "fill": "white"
         });
+
+
+        anime({
+            targets: '.redletters path',
+            strokeDashoffset: [anime.setDashoffset, 0],
+            easing: 'easeInOutSine',
+            duration: 500,
+            loop: false,
+            direction: 'alternate',
+        });
+
+
     });
     $(".redletters").mouseleave(function () {
         $(this).children().css({
@@ -44,47 +104,11 @@ $(document).ready(function () {
     });
 
 
-    $("#plate").mouseover(function () {
-        $("#loin").animate({
-            left: "150%"
-        }, "slow");
-
-    });
 
 });
 
 
-const cuts = [
-    {
-        name: 'BackRibscopy',
-        calories: 250,
-        fat: 13,
-        protein: 24
-    },
-    {
-        name: 'RibeyeFiletcopy',
-        calories: 170,
-        fat: 2.7,
-        protein: 24
-    },
-    {
-        name: 'RibeyePetiteRoastcopy',
-        calories: 150,
-        fat: 2.2,
-        protein: 24
-    },
-    {
-        name: 'RibeyeRoastcopy',
-        calories: 180,
-        fat: 3.8,
-        protein: 24
-    },
-    {
-        name: 'RibeyeSteakcopy',
-        calories: 90,
-        fat: 4,
-        protein: 23
-    }, {
+const cuts = [{
         name: 'BackRibscopy',
         calories: 250,
         fat: 13,
@@ -127,6 +151,12 @@ const cuts = [
         protein: 23
     },
     {
+        name: 'StripLoinRoastcopy',
+        calories: 150,
+        fat: 1.9,
+        protein: 26
+    },
+    {
         name: 'T-BoneSteakcopy',
         calories: 180,
         fat: 3.5,
@@ -157,10 +187,22 @@ const cuts = [
         protein: 24
     },
     {
+        name: 'Coulottecopy',
+        calories: 160,
+        fat: 2.6,
+        protein: 23
+    },
+    {
         name: 'TopSirloinFilet_Tiedcopy',
         calories: 140,
         fat: 1.5,
         protein: 24
+    },
+    {
+        name: 'BallTip_FatOncopy',
+        calories: 160,
+        fat: 2.6,
+        protein: 23
     },
     {
         name: 'CoulotteTopSirloinCapSteakcopy',
@@ -174,7 +216,12 @@ const cuts = [
         fat: 2.1,
         protein: 25
     },
-
+    {
+        name: 'SirloinBavettecopy',
+        calories: 150,
+        fat: 2.1,
+        protein: 23
+    },
     {
         name: 'PetiteSirloinSteakcopy',
         calories: 150,
@@ -193,9 +240,24 @@ const cuts = [
         fat: 2.6,
         protein: 22
     },
-
-
-
+    {
+        name: 'TenderloinButtcopy',
+        calories: 170,
+        fat: 2.8,
+        protein: 26
+    },
+    {
+        name: 'TenderloinTailcopy',
+        calories: 150,
+        fat: 2.5,
+        protein: 23
+    },
+    {
+        name: 'TenderloinTipscopy',
+        calories: 160,
+        fat: 2.5,
+        protein: 25
+    },
     {
         name: 'TenderloinFiletcopy',
         calories: 170,
@@ -208,7 +270,60 @@ const cuts = [
         fat: 2.5,
         protein: 23
     },
-];
+    {
+        name: 'ShortRibs_Chuckcopy',
+        calories: 160,
+        fat: 2.5,
+        protein: 25
+    },
+    {
+        name: 'ChuckTenderSteakcopy',
+        calories: 160,
+        fat: 2.5,
+        protein: 24
+    },
+    {
+        name: 'ChuckTendercopy',
+        calories: 160,
+        fat: 2.6,
+        protein: 23
+    },
+    {
+        name: 'ArmRoastcopy',
+        calories: 140,
+        fat: 1.5,
+        protein: 24
+    },
+    {
+        name: 'BladeChuckRoastcopy',
+        calories: 140,
+        fat: 2.6,
+        protein: 24
+    },
+    {
+        name: 'AmericasBeefRoastcopy',
+        calories: 160,
+        fat: 2.8,
+        protein: 23
+    },
+    {
+        name: 'DelmonicoSteakcopy',
+        calories: 140,
+        fat: 2.5,
+        protein: 26
+    },
+    {
+        name: 'CountryStyleRibscopy',
+        calories: 140,
+        fat: 2.5,
+        protein: 25
+    },
+    {
+        name: 'RanchSteakcopy',
+        calories: 150,
+        fat: 2.8,
+        protein: 23
+    }]
 
 function cut(name, id) {
 
@@ -217,8 +332,9 @@ function cut(name, id) {
             document.getElementById('name').innerHTML = cuts[i].name;
 
 
+
             document.getElementById('cals').innerHTML = cuts[i].calories;
-            document.getElementById('calSlider').style.left = cuts[i].calories + 'px';
+            document.getElementById('calSlider').style.left = 0.5 * cuts[i].calories + 'px';
 
             document.getElementById('fat').innerHTML = cuts[i].fat;
             document.getElementById('fatSlider').style.left = 20 * cuts[i].fat + 'px';
@@ -242,16 +358,6 @@ anime({
     duration: 1000,
     direction: 'alternate',
     loop: false
-});
-
-anime({
-    targets: '.redletters path',
-    strokeDashoffset: [anime.setDashoffset, 0],
-    easing: 'easeInOutSine',
-    duration: 500,
-    direction: 'alternate',
-    delay: anime.stagger(200),
-    loop: true
 });
 
 
