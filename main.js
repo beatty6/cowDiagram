@@ -111,7 +111,7 @@ $(document).ready(function () {
 const cuts = [{
         name: 'BackRibscopy',
         calories: 250,
-        fat: 13,
+        fat: 4,
         protein: 24
     },
     {
@@ -329,7 +329,10 @@ function cut(name, id) {
 
     for (let i = 0; i <= cuts.length - 1; i++) {
         if (name === cuts[i].name) {
-            document.getElementById('name').innerHTML = cuts[i].name;
+            
+            // find substring 'copy' and remove 
+            let altered = cuts[i].name.replace("copy", "");
+            document.getElementById('name').innerHTML = altered;
 
 
 
@@ -337,7 +340,7 @@ function cut(name, id) {
             document.getElementById('calSlider').style.left = 0.5 * cuts[i].calories + 'px';
 
             document.getElementById('fat').innerHTML = cuts[i].fat;
-            document.getElementById('fatSlider').style.left = 20 * cuts[i].fat + 'px';
+            document.getElementById('fatSlider').style.left = 40 * cuts[i].fat + 'px';
             document.getElementById('protein').innerHTML = cuts[i].protein;
             document.getElementById('proteinSlider').style.left = 2 * cuts[i].protein + 'px';
 
